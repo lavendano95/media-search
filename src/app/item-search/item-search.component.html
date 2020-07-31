@@ -1,0 +1,22 @@
+<div id="search-component" class="content">
+    <input #searchBox id="search-box" placeholder="type something and press enter..." (keyup.enter)="onEnter(searchBox.value)" />
+    <p>{{loadingState}}</p>
+    <div class="card-container">
+        <a *ngFor="let item of items$ | async" class="card" target="_blank" rel="noopener" href="{{item.viewUrl}}">
+            <div class="card-main-picture-container">
+                <img src="{{item.artwork}}" alt="{{item.name}}">
+            </div>
+            <div class="information-section"> 
+                <h4 class="title">{{item.name}}</h4>
+                <h5 class="information">{{item.artistName}}</h5>
+                <h6 class="information">{{item.genre}}</h6>
+                <h6 class="information">{{item.kind}}</h6>
+                <h6 class="information">{{item.timeLengthInMinutes}}</h6>
+            </div>
+            <div class="source-img-container">
+                <img src="{{item.sourceServiceImgUrl}}" alt="{{item.source}}">
+            </div>
+        </a>
+    </div>
+</div>
+  
